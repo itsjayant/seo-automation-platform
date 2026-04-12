@@ -1,0 +1,139 @@
+version: '3.8'
+
+services:
+  # PostgreSQL 16 with TimescaleDB extension
+  postgres:
+    image: timescale/timescaledb:latest-pg16
+    container_name: seo_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-seo_platform}
+      POSTGRES_USER: ${POSTGRES_USER:-seo}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?POSTGRES_PASSWORD is required}
+      # TimescaleDB image automatically handles extension setup
+      POSTGRES_INITDB_ARGS: "--auth-host=scram-sha-256"
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      # Initialize TimescaleDB and pgvector extensions
+      - ./db/init:/docker-entrypoint-initdb.d/:ro
+    command: >
+      postgres
+        -c max_connections=200
+        -c shared_buffers=256MB
+        -c effective_cache_size=1GB
+        -c work_mem=4MB
+        -c maintenance_work_mem=64MB
+        -c checkpoint_completion_target=0.9
+        -c wal_buffers=16MB
+        -c default_statistics_target=100
+        -c random_page_cost=1.1
+        -c effective_io_concurrency=200
+        -c log_min_duration_statement=1000
+    networks:
+      - seo-network
+    healthcheck:
+      # Basic PostgreSQL readiness check - fast internal check
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-seo} -d ${POSTGRES_DB:-seo_platform}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+      # Note: For comprehensive health checks including extensions, use:
+      # python /app/scripts/health-check.py --json-only --timeout 10
+
+  # Redis 7 with Streams support and persistence
+  redis:
+    image: redis:7.2-alpine
+    container_name: seo_redis
+    restart: unless-stopped
+    ports:
+      - "${REDIS_PORT:-6379}:6379"
+    volumes:
+      - redis-data:/data
+      - ./redis/redis.conf:/usr/local/etc/redis/redis.conf:ro
+    command: >
+      redis-server /usr/local/etc/redis/redis.conf
+        --appendonly yes
+        --appendfsync everysec
+        --maxmemory 256mb
+        --maxmemory-policy allkeys-lru
+        --save 900 1
+        --save 300 10
+        --save 60 10000
+        --tcp-keepalive 300
+        --timeout 0
+        --tcp-backlog 511
+        --databases 1
+    networks:
+      - seo-network
+    healthcheck:
+      # Basic Redis connectivity check - fast internal check  
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+      start_period: 5s
+      # Note: For comprehensive health checks including Streams functionality, use:
+      # python /app/scripts/health-check.py --json-only --timeout 10
+
+  # NATS.io with JetStream enabled for approval workflows
+  nats:
+    image: nats:2.10-alpine
+    container_name: seo_nats
+    restart: unless-stopped
+    ports:
+      - "${NATS_PORT:-4222}:4222"      # Client connections
+      - "${NATS_HTTP_PORT:-8222}:8222" # HTTP monitoring
+    volumes:
+      - nats-data:/data
+      - ./nats/nats.conf:/etc/nats/nats.conf:ro
+    command: >
+      -c /etc/nats/nats.conf
+      --jetstream
+      --store_dir=/data
+    networks:
+      - seo-network
+    healthcheck:
+      # Basic NATS HTTP monitoring endpoint check - fast internal check
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:8222/healthz"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
+      # Note: For comprehensive health checks including JetStream functionality, use:
+      # python /app/scripts/health-check.py --json-only --timeout 10
+
+  # TODO: Add in future phases
+  # orchestrator:
+  #   build: ./agents
+  #   container_name: seo_orchestrator
+  #   depends_on:
+  #     postgres:
+  #       condition: service_healthy
+  #     redis:
+  #       condition: service_healthy
+  #     nats:
+  #       condition: service_healthy
+
+  # web:
+  #   build: ./web
+  #   container_name: seo_web
+  #   ports:
+  #     - "3000:3000"
+  #   depends_on:
+  #     postgres:
+  #       condition: service_healthy
+
+volumes:
+  postgres-data:
+  redis-data:
+  nats-data:
+
+networks:
+  seo-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16

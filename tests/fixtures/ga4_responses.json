@@ -1,0 +1,221 @@
+{
+    "reports": [
+        {
+            "dimensionHeaders": [
+                {
+                    "name": "pagePath"
+                },
+                {
+                    "name": "date"
+                }
+            ],
+            "metricHeaders": [
+                {
+                    "name": "organicGoogleSearchClicks",
+                    "type": "TYPE_INTEGER"
+                },
+                {
+                    "name": "organicGoogleSearchImpressions",
+                    "type": "TYPE_INTEGER"
+                },
+                {
+                    "name": "sessions",
+                    "type": "TYPE_INTEGER"
+                }
+            ],
+            "rows": [
+                {
+                    "dimensionValues": [
+                        {
+                            "value": "/seo-guide"
+                        },
+                        {
+                            "value": "20240401"
+                        }
+                    ],
+                    "metricValues": [
+                        {
+                            "value": "125"
+                        },
+                        {
+                            "value": "2100"
+                        },
+                        {
+                            "value": "110"
+                        }
+                    ]
+                },
+                {
+                    "dimensionValues": [
+                        {
+                            "value": "/tools"
+                        },
+                        {
+                            "value": "20240401"
+                        }
+                    ],
+                    "metricValues": [
+                        {
+                            "value": "68"
+                        },
+                        {
+                            "value": "980"
+                        },
+                        {
+                            "value": "45"
+                        }
+                    ]
+                }
+            ],
+            "totals": [
+                {
+                    "metricValues": [
+                        {
+                            "value": "193"
+                        },
+                        {
+                            "value": "3080"
+                        },
+                        {
+                            "value": "155"
+                        }
+                    ]
+                }
+            ],
+            "maximums": [
+                {
+                    "metricValues": [
+                        {
+                            "value": "125"
+                        },
+                        {
+                            "value": "2100"
+                        },
+                        {
+                            "value": "110"
+                        }
+                    ]
+                }
+            ],
+            "minimums": [
+                {
+                    "metricValues": [
+                        {
+                            "value": "68"
+                        },
+                        {
+                            "value": "980"
+                        },
+                        {
+                            "value": "45"
+                        }
+                    ]
+                }
+            ],
+            "rowCount": 2
+        }
+    ],
+    "metadata": {
+        "dataLossFromOtherRow": false,
+        "currencyCode": "USD",
+        "timeZone": "America/Los_Angeles"
+    },
+    "propertyQuota": {
+        "tokensPerDay": {
+            "consumed": 15,
+            "remaining": 24985
+        },
+        "tokensPerHour": {
+            "consumed": 3,
+            "remaining": 4997
+        }
+    },
+    "audience_report": {
+        "dimensionHeaders": [
+            {
+                "name": "country"
+            },
+            {
+                "name": "deviceCategory"
+            }
+        ],
+        "metricHeaders": [
+            {
+                "name": "activeUsers",
+                "type": "TYPE_INTEGER"
+            },
+            {
+                "name": "newUsers",
+                "type": "TYPE_INTEGER"
+            }
+        ],
+        "rows": [
+            {
+                "dimensionValues": [
+                    {
+                        "value": "United States"
+                    },
+                    {
+                        "value": "desktop"
+                    }
+                ],
+                "metricValues": [
+                    {
+                        "value": "1250"
+                    },
+                    {
+                        "value": "320"
+                    }
+                ]
+            },
+            {
+                "dimensionValues": [
+                    {
+                        "value": "United States"
+                    },
+                    {
+                        "value": "mobile"
+                    }
+                ],
+                "metricValues": [
+                    {
+                        "value": "890"
+                    },
+                    {
+                        "value": "245"
+                    }
+                ]
+            }
+        ]
+    },
+    "errors": {
+        "quota_exceeded": {
+            "error": {
+                "code": 429,
+                "message": "Quota exceeded",
+                "status": "RESOURCE_EXHAUSTED",
+                "details": [
+                    {
+                        "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+                        "reason": "RATE_LIMIT_EXCEEDED",
+                        "domain": "googleapis.com"
+                    }
+                ]
+            }
+        },
+        "invalid_property": {
+            "error": {
+                "code": 400,
+                "message": "Invalid property ID",
+                "status": "INVALID_ARGUMENT"
+            }
+        },
+        "unauthorized": {
+            "error": {
+                "code": 401,
+                "message": "Request is not authorized",
+                "status": "UNAUTHENTICATED"
+            }
+        }
+    }
+}

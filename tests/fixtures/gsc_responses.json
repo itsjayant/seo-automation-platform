@@ -1,0 +1,105 @@
+{
+    "search_analytics": {
+        "rows": [
+            {
+                "keys": [
+                    "seo best practices"
+                ],
+                "clicks": 150.0,
+                "impressions": 2500.0,
+                "ctr": 0.06,
+                "position": 5.2
+            },
+            {
+                "keys": [
+                    "buy seo tools"
+                ],
+                "clicks": 75.0,
+                "impressions": 1200.0,
+                "ctr": 0.0625,
+                "position": 8.1
+            },
+            {
+                "keys": [
+                    "keyword research"
+                ],
+                "clicks": 90.0,
+                "impressions": 1800.0,
+                "ctr": 0.05,
+                "position": 4.7
+            }
+        ],
+        "responseAggregationType": "byPage"
+    },
+    "search_analytics_with_dimensions": {
+        "rows": [
+            {
+                "keys": [
+                    "seo best practices",
+                    "2024-04-01",
+                    "DESKTOP"
+                ],
+                "clicks": 100.0,
+                "impressions": 1800.0,
+                "ctr": 0.0556,
+                "position": 5.1
+            },
+            {
+                "keys": [
+                    "seo best practices",
+                    "2024-04-01",
+                    "MOBILE"
+                ],
+                "clicks": 50.0,
+                "impressions": 700.0,
+                "ctr": 0.0714,
+                "position": 5.3
+            }
+        ],
+        "responseAggregationType": "byPage"
+    },
+    "sites": {
+        "siteEntry": [
+            {
+                "siteUrl": "sc-domain:example.com",
+                "permissionLevel": "siteOwner"
+            },
+            {
+                "siteUrl": "https://blog.example.com/",
+                "permissionLevel": "siteFullUser"
+            }
+        ]
+    },
+    "site_verification": {
+        "id": "sc-domain:example.com",
+        "owners": [
+            {
+                "verified": true,
+                "permission": "siteOwner"
+            }
+        ]
+    },
+    "errors": {
+        "quota_exceeded": {
+            "error": {
+                "code": 429,
+                "message": "Quota exceeded",
+                "status": "RESOURCE_EXHAUSTED"
+            }
+        },
+        "unauthorized": {
+            "error": {
+                "code": 403,
+                "message": "The caller does not have permission",
+                "status": "PERMISSION_DENIED"
+            }
+        },
+        "not_found": {
+            "error": {
+                "code": 404,
+                "message": "Requested entity was not found",
+                "status": "NOT_FOUND"
+            }
+        }
+    }
+}

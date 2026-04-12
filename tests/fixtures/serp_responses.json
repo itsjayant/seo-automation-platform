@@ -1,0 +1,185 @@
+{
+    "organic_search_results": {
+        "search_metadata": {
+            "id": "mock-search-123",
+            "status": "Success",
+            "json_endpoint": "https://serpapi.com/searches/mock-search-123.json",
+            "created_at": "2024-04-01 12:00:00 UTC",
+            "processed_at": "2024-04-01 12:00:01 UTC",
+            "google_url": "https://www.google.com/search?q=seo+best+practices",
+            "raw_html_file": "https://serpapi.com/searches/mock-search-123/raw.html",
+            "total_time_taken": 1.25
+        },
+        "search_parameters": {
+            "engine": "google",
+            "q": "seo best practices",
+            "location": "United States",
+            "hl": "en",
+            "gl": "us",
+            "google_domain": "google.com",
+            "device": "desktop"
+        },
+        "search_information": {
+            "query_displayed": "seo best practices",
+            "total_results": 2450000,
+            "time_taken_displayed": 0.58,
+            "organic_results_state": "Results for exact spelling"
+        },
+        "organic_results": [
+            {
+                "position": 1,
+                "title": "13 SEO Best Practices: Improve Your Search Rankings",
+                "link": "https://blog.hubspot.com/marketing/seo-best-practices-list",
+                "displayed_link": "blog.hubspot.com › marketing › seo-best-practices-list",
+                "snippet": "Learn the essential SEO best practices that will help improve your search engine rankings and drive more organic traffic to your website.",
+                "rich_snippet": {
+                    "top": {
+                        "detected_extensions": {
+                            "rating": 4.5,
+                            "reviews": 128,
+                            "price": "$0"
+                        }
+                    }
+                },
+                "sitelinks": [
+                    {
+                        "title": "On-Page SEO",
+                        "link": "https://blog.hubspot.com/marketing/on-page-seo"
+                    },
+                    {
+                        "title": "Technical SEO",
+                        "link": "https://blog.hubspot.com/marketing/technical-seo"
+                    }
+                ]
+            },
+            {
+                "position": 2,
+                "title": "SEO Best Practices 2024: Complete Guide",
+                "link": "https://moz.com/learn/seo/seo-best-practices",
+                "displayed_link": "moz.com › learn › seo › seo-best-practices",
+                "snippet": "Discover the latest SEO best practices for 2024. This comprehensive guide covers everything from keyword research to technical optimization.",
+                "rich_snippet": {
+                    "top": {
+                        "detected_extensions": {
+                            "date": "Mar 15, 2024"
+                        }
+                    }
+                }
+            },
+            {
+                "position": 3,
+                "title": "Google's SEO Best Practices Guidelines",
+                "link": "https://developers.google.com/search/docs/fundamentals/seo-starter-guide",
+                "displayed_link": "developers.google.com › search › docs › fundamentals",
+                "snippet": "Official SEO guidelines and best practices from Google. Learn how to optimize your site for Google Search.",
+                "rich_snippet": {
+                    "top": {
+                        "detected_extensions": {
+                            "source": "Google Developers"
+                        }
+                    }
+                }
+            },
+            {
+                "position": 4,
+                "title": "Advanced SEO Techniques That Work",
+                "link": "https://ahrefs.com/blog/advanced-seo-techniques/",
+                "displayed_link": "ahrefs.com › blog › advanced-seo-techniques",
+                "snippet": "Master advanced SEO techniques and strategies to boost your organic rankings and outrank your competitors."
+            },
+            {
+                "position": 5,
+                "title": "SEO Guide: Best Practices for 2024",
+                "link": "https://example.com/seo-guide",
+                "displayed_link": "example.com › seo-guide",
+                "snippet": "Complete guide to SEO best practices for improving organic search rankings and increasing website visibility.",
+                "rich_snippet": {
+                    "top": {
+                        "detected_extensions": {
+                            "rating": 4.8,
+                            "reviews": 45
+                        }
+                    }
+                }
+            }
+        ],
+        "people_also_ask": [
+            {
+                "question": "What are the most important SEO best practices?",
+                "snippet": "The most important SEO best practices include keyword research, creating high-quality content, optimizing meta tags, building backlinks, and ensuring fast page load speeds.",
+                "title": "Key SEO Best Practices - Search Engine Guide",
+                "link": "https://www.searchengineguide.com/seo-best-practices"
+            }
+        ],
+        "related_searches": [
+            {
+                "query": "seo best practices 2024",
+                "link": "https://www.google.com/search?q=seo+best+practices+2024"
+            },
+            {
+                "query": "seo optimization techniques",
+                "link": "https://www.google.com/search?q=seo+optimization+techniques"
+            },
+            {
+                "query": "on page seo best practices",
+                "link": "https://www.google.com/search?q=on+page+seo+best+practices"
+            }
+        ]
+    },
+    "mobile_search_results": {
+        "search_metadata": {
+            "id": "mock-mobile-search-456",
+            "status": "Success",
+            "google_url": "https://www.google.com/search?q=buy+seo+tools",
+            "device": "mobile"
+        },
+        "search_parameters": {
+            "engine": "google",
+            "q": "buy seo tools",
+            "device": "mobile",
+            "location": "United States",
+            "hl": "en",
+            "gl": "us"
+        },
+        "organic_results": [
+            {
+                "position": 1,
+                "title": "Best SEO Tools 2024 - Professional Plans",
+                "link": "https://semrush.com/pricing/",
+                "snippet": "Get professional SEO tools with advanced features. Start your free trial today."
+            },
+            {
+                "position": 8,
+                "title": "SEO Tools for Your Business",
+                "link": "https://example.com/tools",
+                "snippet": "Professional SEO tools and services to grow your business. Custom solutions available."
+            }
+        ]
+    },
+    "errors": {
+        "rate_limit": {
+            "error": {
+                "type": "rate_limit_exceeded",
+                "message": "You have exceeded your monthly search limit of 100 searches. To continue using SerpApi, please upgrade your plan or wait until your limit resets."
+            }
+        },
+        "invalid_api_key": {
+            "error": {
+                "type": "invalid_api_key",
+                "message": "Your API key is not valid. Please ensure your API key is correct."
+            }
+        },
+        "search_engine_error": {
+            "error": {
+                "type": "search_engine_error",
+                "message": "The search engine returned an error. Please try again later."
+            }
+        },
+        "timeout": {
+            "error": {
+                "type": "timeout",
+                "message": "The search request timed out. Please try again."
+            }
+        }
+    }
+}

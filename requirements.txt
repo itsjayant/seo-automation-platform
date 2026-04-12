@@ -1,0 +1,66 @@
+# SEO Automation Platform - Python Dependencies
+
+# Core application framework
+pydantic>=2.6.0
+pydantic-settings>=2.2.0
+
+# Database connections
+asyncpg>=0.29.0          # PostgreSQL async driver
+psycopg2-binary>=2.9.9   # PostgreSQL sync driver (backup/admin)
+
+# ORM and migration tools
+sqlalchemy>=2.0.28       # SQLAlchemy 2.0 with async support
+sqlalchemy[asyncio]>=2.0.28  # AsyncIO extras for SQLAlchemy
+alembic>=1.13.0          # Database migrations
+pgvector>=0.2.5          # PostgreSQL vector extension support
+
+# Redis support
+redis>=5.0.1             # Redis client with async support
+
+# NATS messaging
+nats-py>=2.7.0           # NATS client with JetStream support
+
+# HTTP client
+httpx>=0.27.0            # Async HTTP client with HTTP/2 support
+
+# Web framework (for future phases)
+fastapi>=0.110.0         # API framework
+uvicorn>=0.28.0          # ASGI server
+
+# Task orchestration (for agent phases)
+langgraph>=0.0.50        # Agent workflow orchestration
+
+# Logging and monitoring
+structlog>=24.1.0        # Structured logging
+opentelemetry-api>=1.23.0           # OpenTelemetry API
+opentelemetry-sdk>=1.23.0           # OpenTelemetry SDK
+opentelemetry-instrumentation>=0.44b0  # Auto-instrumentation
+opentelemetry-instrumentation-asyncpg>=0.44b0  # AsyncPG tracing
+opentelemetry-instrumentation-redis>=0.44b0    # Redis tracing
+opentelemetry-instrumentation-sqlalchemy>=0.44b0  # SQLAlchemy tracing
+
+# Google APIs
+google-analytics-data>=0.18.6  # Google Analytics 4 API client
+
+# Security
+cryptography>=42.0.0     # Encryption support
+
+# Development dependencies
+pytest>=8.0.0            # Testing framework
+pytest-asyncio>=0.23.0   # Async testing support
+pytest-cov>=4.0.0        # Code coverage reporting
+pytest-mock>=3.12.0      # Mock framework integration
+pytest-xdist>=3.5.0      # Parallel test execution
+httpx-mock>=0.11.0       # HTTP mocking for httpx
+faker>=24.0.0            # Test data generation
+factory-boy>=3.3.0       # Test model factories
+responses>=0.25.0        # HTTP response mocking
+pytest-env>=1.1.0        # Environment variable management
+black>=24.3.0            # Code formatting
+ruff>=0.3.0              # Fast linting
+
+# Type checking
+mypy>=1.9.0
+
+# Documentation
+mkdocs>=1.5.0            # Documentation generation

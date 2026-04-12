@@ -1,0 +1,103 @@
+# ==============================================================================
+# SEO Automation Platform - Git Ignore Configuration
+# ==============================================================================
+
+# Environment files (keep .env.example but exclude actual .env)
+.env
+.env.local
+.env.production
+.env.staging
+.env.development
+*.env
+
+# Python cache and bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Testing and coverage
+.pytest_cache/
+.coverage
+.coverage.*
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+htmlcov/
+.tox/
+.nox/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IDEs and editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Node.js (for future Next.js app)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm
+.yarn
+
+# Next.js build output
+.next/
+out/
+
+# Docker and data volumes
+.docker/
+docker-compose.override.yml
+
+# Local data directories
+data/postgres/
+data/redis/
+data/nats/
+logs/
+backups/
+
+# Temporary files
+*.tmp
+*.temp
+.tmp/
+
+# OS generated files
+*.log
+*.pid
+*.lock
+
+# Alembic generated files that shouldn't be committed
+alembic/versions/*.pyc
+
+# Secret keys and certificates
+*.key
+*.pem
+*.crt
+*.cer
+secrets/
